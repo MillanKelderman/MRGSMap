@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             openMappage();
         });
 
+
     }
     public void openMappage() {
         Intent intent = new Intent(this, Mappage.class);

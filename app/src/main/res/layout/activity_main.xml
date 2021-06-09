@@ -35,6 +35,8 @@
             android:maxLength="5"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="166dp"
@@ -55,11 +57,36 @@
         android:layout_marginLeft="155dp"
         android:layout_marginEnd="163dp"
         android:layout_marginRight="163dp"
-        android:layout_marginBottom="269dp"
-        android:text="Save ID"
+        android:layout_marginBottom="250dp"
+        android:text="@string/signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+   <!-- <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Year Level" />
+
+    </com.google.android.material.textfield.TextInputLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
