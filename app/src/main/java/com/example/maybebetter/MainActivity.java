@@ -9,11 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
@@ -36,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        ImageSlider imageSlider = findViewById(R.id.imageslider);
+
+        List<SlideModel> slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel("", "1 Image"));
+        slideModels.add(new SlideModel("", "2 Image"));
+        slideModels.add(new SlideModel("", "3 Image"));
+        slideModels.add(new SlideModel("", "4 Image"));
+        slideModels.add(new SlideModel("", "5 Image"));
+        slideModels.add(new SlideModel("", "6 Image"));
+        imageSlider.setImageList(slideModels, true);
     }
     public void openMappage() {
         Intent intent = new Intent(this, Mappage.class);
