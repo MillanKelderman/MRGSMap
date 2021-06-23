@@ -43,13 +43,17 @@ public class MainActivity extends AppCompatActivity {
         ImageSlider imageSlider = findViewById(R.id.imageslider);
 
         List<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel("", "1 Image"));
-        slideModels.add(new SlideModel("", "2 Image"));
-        slideModels.add(new SlideModel("", "3 Image"));
-        slideModels.add(new SlideModel("", "4 Image"));
-        slideModels.add(new SlideModel("", "5 Image"));
-        slideModels.add(new SlideModel("", "6 Image"));
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Diversity.jpg", "Diversity"));
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Individuals-1920x1280.jpg", "Individuals"));
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Teaching-1920x1280.jpg", "Teaching"));
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Purposeful-1920x1280.jpg", "Purposeful"));
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Kindness-1920x1280.jpg", "Kindness"));
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Community-1920x1280.jpg", "Community"));
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Leadership-1920x1280.jpg", "Leadership"));
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Teamwork-1920x1280.jpg", "Teamwork"));
         imageSlider.setImageList(slideModels, true);
+
+
     }
     public void openMappage() {
         Intent intent = new Intent(this, Mappage.class);

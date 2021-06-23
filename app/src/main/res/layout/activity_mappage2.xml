@@ -27,18 +27,20 @@
 
     <TextView
         android:id="@+id/dropdown_choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="61dp"
+        android:layout_centerInParent="true"
+        android:background="@android:drawable/editbox_background"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:drawablePadding="16dp"
         android:hint="@string/map_spec_select"
         android:padding="12dp"
-        android:layout_centerInParent="true"
-        android:drawablePadding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="18sp"
         app:drawableRightCompat="@android:drawable/arrow_down_float"
-        android:drawableRight="@android:drawable/arrow_down_float"
-        android:background="@android:drawable/editbox_background"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/kamar"

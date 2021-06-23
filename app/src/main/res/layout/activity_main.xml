@@ -32,9 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:maxLength="5"/>
+            android:maxLength="5" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <ImageView
@@ -57,26 +56,28 @@
         android:layout_marginLeft="155dp"
         android:layout_marginEnd="163dp"
         android:layout_marginRight="163dp"
-        android:layout_marginBottom="444dp"
         android:text="@string/signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.438"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.405" />
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/imageslider"
-        android:layout_width="415dp"
+        android:layout_width="409dp"
+        android:layout_height="725dp"
         app:auto_cycle="true"
-        app:placeholder="@drawable/no_image"
-        app:error_image="@drawable/no_image"
-        app:delay="0"
-        app:period="1000"
         app:corner_radius="5"
-        android:layout_height="443dp"
+        app:delay="0"
+        app:error_image="@drawable/no_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:period="2500"
+        app:placeholder="@drawable/no_image" />
 
 
     <!-- <com.google.android.material.textfield.TextInputLayout
