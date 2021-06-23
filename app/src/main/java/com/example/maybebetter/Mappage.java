@@ -4,10 +4,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,13 +32,25 @@ public class Mappage extends AppCompatActivity {
 //    ScaleGestureDetector scaleGestureDetector;
 //    float scaleFactor = 1.0f;
 
+    //Open KamarActivity
+    ImageButton kamarimagebutton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mappage2);
-        //To be able to mauevure the map
+        //To be able to maneuver the map
         mapview = findViewById(R.id.mapview);
         mapview.setImage(ImageSource.resource(R.drawable.fullmap));
+
+        kamarimagebutton = findViewById(R.id.kamar);
+        kamarimagebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentLoadNewActivity = new Intent(Mappage.this, KamarPage.class);
+                startActivity(intentLoadNewActivity);
+            }
+        });
 
         //assign the variable for droptown spinner
         specifications = findViewById(R.id.dropdown_choice);
