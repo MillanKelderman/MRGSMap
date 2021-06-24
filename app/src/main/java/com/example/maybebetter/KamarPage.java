@@ -14,5 +14,6 @@ public class KamarPage extends AppCompatActivity {
 
         WebView myWebView = (WebView) findViewById(R.id.kamarwebview);
         myWebView.loadUrl("https://kamarportal.mrgs.school.nz/index.php/home");
+        //just wanna recommit lol
     }
 }
