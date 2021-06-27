@@ -6,11 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
@@ -25,7 +22,7 @@ public class Mappage extends AppCompatActivity {
     TextView specifications;
     boolean[] selectedchoice;
     ArrayList<Integer> optionlist = new ArrayList<>();
-    String[] optionArray = {"A block","B block", "C block", "D block", "E block", "G block", "H block", "P block", "S block", "R block"};
+    String[] optionArray = {"A block","B block", "C block", "Front Field"}; /*"E block", "G block", "H block", "P block", "S block", "R block"};*/
 
 //    ImageView imageView;
 //
@@ -52,7 +49,7 @@ public class Mappage extends AppCompatActivity {
             }
         });
 
-        //assign the variable for droptown spinner
+        //assign the variable for dropdown spinner
         specifications = findViewById(R.id.dropdown_choice);
 
         //Initialise selected choice array
@@ -77,14 +74,14 @@ public class Mappage extends AppCompatActivity {
                         if (b){
                             //When check box is selected add position in list
                             optionlist.add(i);
-                            //sort day list
+                            //sort option list
                             Collections.sort(optionlist);
 
                         }else {
                             //When Checkbox is unselected remove position from option list
                             optionlist.remove(i);
                         }
-
+                        if ("Front Field");
                     }
                 });
 
