@@ -7,7 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
@@ -18,6 +20,13 @@ import java.util.Collections;
 
 
 public class Mappage extends AppCompatActivity {
+
+    Button togglebutton;
+    ImageView imageView;
+
+
+
+
     SubsamplingScaleImageView mapview;
     TextView specifications;
     boolean[] selectedchoice;
@@ -39,6 +48,20 @@ public class Mappage extends AppCompatActivity {
         //To be able to maneuver the map
         mapview = findViewById(R.id.mapview);
         mapview.setImage(ImageSource.resource(R.drawable.fullmap));
+
+        imageView = (ImageView) findViewById(R.id.frontfieldimg);
+        togglebutton = findViewById(R.id.frontfieldtoggle);
+
+        togglebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(imageView.getVisibility() == View.VISIBLE)
+                    imageView.setVisibility(View.INVISIBLE);
+                else
+                    imageView.setVisibility(View.VISIBLE);
+            }
+        });
+
 
         kamarimagebutton = findViewById(R.id.kamar);
         kamarimagebutton.setOnClickListener(new View.OnClickListener() {
@@ -81,14 +104,14 @@ public class Mappage extends AppCompatActivity {
                             //When Checkbox is unselected remove position from option list
                             optionlist.remove(i);
                         }
-                        if ("Front Field");
+
                     }
                 });
 
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        //string builder thingy
+                        //string builder
                         StringBuilder stringBuilder = new StringBuilder();
                         //Use for Loop
                         for (int j=0; j<optionlist.size(); j++){
@@ -103,6 +126,8 @@ public class Mappage extends AppCompatActivity {
                         }
                         //Set Text on text view
                         specifications.setText(stringBuilder.toString());
+
+
 
                     }
                 });

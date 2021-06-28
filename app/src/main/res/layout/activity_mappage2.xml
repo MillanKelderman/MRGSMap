@@ -23,7 +23,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/dropdown_choice"
@@ -54,7 +54,7 @@
         app:srcCompat="@drawable/ic_world" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/emblem"
         android:layout_width="114dp"
         android:layout_height="140dp"
         android:layout_marginBottom="750dp"
@@ -67,15 +67,24 @@
         app:srcCompat="@drawable/emblem" />
 
     <ImageView
-        android:id="@+id/frontfield"
-        android:layout_width="197dp"
-        android:layout_height="298dp"
-        android:layout_marginBottom="204dp"
+        android:id="@+id/frontfieldimg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/frontfield" />
+
+    <ToggleButton
+        android:id="@+id/frontfieldtoggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emblem" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
