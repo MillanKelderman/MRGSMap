@@ -11,11 +11,12 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_maps">Map</string>
     <string name="map_spec_select">Map Specification</string>
-    <!--    <string-array name="Year Levels">
-        <item>Year 9</item>
-        <item>Year 10</item>
-        <item>Year 11</item>
-        <item>Year 12</item>
-        <item>Year 13</item></string-array>-->
+
+        <string-array name="Options">
+        <item>A Block</item>
+        <item>B Block</item>
+        <item>C Block</item>
+        <item>D Block</item>
+        <item>Front Field</item></string-array>
 
 </resources>

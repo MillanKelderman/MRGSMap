@@ -7,9 +7,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
@@ -24,15 +27,19 @@ public class Mappage extends AppCompatActivity {
     Button togglebutton;
     ImageView imageView;
 
-
+    Spinner spinner;
 
 
     SubsamplingScaleImageView mapview;
+
+
     TextView specifications;
     boolean[] selectedchoice;
     ArrayList<Integer> optionlist = new ArrayList<>();
-    String[] optionArray = {"A block","B block", "C block", "Front Field"}; /*"E block", "G block", "H block", "P block", "S block", "R block"};*/
+    String[] optionArray = {"A block", "B block", "C block", "D Block", "E block", "G block", "H block", "M Block", "P block",  "R block", "S block", "T Block"};
 
+
+    //This is old code, used initally to zoom in and out of the map
 //    ImageView imageView;
 //
 //    ScaleGestureDetector scaleGestureDetector;
@@ -48,21 +55,66 @@ public class Mappage extends AppCompatActivity {
         //To be able to maneuver the map
         mapview = findViewById(R.id.mapview);
         mapview.setImage(ImageSource.resource(R.drawable.fullmap));
+        mapview.setImage(ImageSource.resource(R.drawable.frontfield));
 
-        imageView = (ImageView) findViewById(R.id.frontfieldimg);
-        togglebutton = findViewById(R.id.frontfieldtoggle);
 
-        togglebutton.setOnClickListener(new View.OnClickListener() {
+        spinner.findViewById(R.id.options_spinner);
+
+        ArrayAdapter arrayAdapter=new ArrayAdapter(Mappage.this,android.R.layout.simple_dropdown_item_1line,optionArray);
+        spinner.setAdapter((arrayAdapter));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                if(imageView.getVisibility() == View.VISIBLE)
-                    imageView.setVisibility(View.INVISIBLE);
-                else
-                    imageView.setVisibility(View.VISIBLE);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (optionArray[0].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.a_block));
+                } else if (optionArray[1].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.b_block));
+                } else if (optionArray[2].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.c_block));
+/*                }else if(optionArray[3].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.d_block));
+                }else if(optionArray[4].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.e_block));
+                }else if(optionArray[5].equals(spinner.getItemAtPosition(i).toString())){
+                    mapview.setImage(ImageSource.resource(R.drawable.g_block));
+                }else if(optionArray[6].equals(spinner.getItemAtPosition(i).toString())){
+                    mapview.setImage(ImageSource.resource(R.drawable.h_block));
+                }else if(optionArray[7].equals(spinner.getItemAtPosition(i).toString())){
+                    mapview.setImage(ImageSource.resource(R.drawable.m_block));
+                }else if(optionArray[8].equals(spinner.getItemAtPosition(i).toString())){
+                    mapview.setImage(ImageSource.resource(R.drawable.p_block));
+                }else if(optionArray[9].equals(spinner.getItemAtPosition(i).toString())){
+                    mapview.setImage(ImageSource.resource(R.drawable.r_block));
+                }else if(optionArray[10].equals(spinner.getItemAtPosition(i).toString())){
+                    mapview.setImage(ImageSource.resource(R.drawable.s_block));
+                }else if(optionArray[11].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.t_block));
+                }*/
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
 
+        /*imageView = (ImageView) findViewById(R.id.frontfieldimg);*/
+   /*     togglebutton = findViewById(R.id.frontfieldtoggle);
+
+        togglebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (imageView.getVisibility() == View.INVISIBLE)
+                    imageView.setVisibility(View.VISIBLE);
+                else
+                    imageView.setVisibility(View.INVISIBLE);
+            }
+        });*/
+
+        //call the kamar image
         kamarimagebutton = findViewById(R.id.kamar);
         kamarimagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +123,9 @@ public class Mappage extends AppCompatActivity {
                 startActivity(intentLoadNewActivity);
             }
         });
-
-        //assign the variable for dropdown spinner
+    }
+}
+       /* //assign the variable for dropdown spinner
         specifications = findViewById(R.id.dropdown_choice);
 
         //Initialise selected choice array
@@ -155,13 +208,13 @@ public class Mappage extends AppCompatActivity {
                     }
                 });
                 //show Dialog
-                builder.show();
-            }
+                builder.show();*/
+       /*     }
         });
 
 
     }
-}
+}*/
        /* imageView = findViewById(R.id.imageView);
 
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
