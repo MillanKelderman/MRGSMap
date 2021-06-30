@@ -55,10 +55,10 @@ public class Mappage extends AppCompatActivity {
         //To be able to maneuver the map
         mapview = findViewById(R.id.mapview);
         mapview.setImage(ImageSource.resource(R.drawable.fullmap));
-        mapview.setImage(ImageSource.resource(R.drawable.frontfield));
+/*        mapview.setImage(ImageSource.resource(R.drawable.frontfield));*/
 
 
-        spinner.findViewById(R.id.options_spinner);
+        spinner = findViewById(R.id.options_spinner);
 
         ArrayAdapter arrayAdapter=new ArrayAdapter(Mappage.this,android.R.layout.simple_dropdown_item_1line,optionArray);
         spinner.setAdapter((arrayAdapter));
@@ -71,7 +71,7 @@ public class Mappage extends AppCompatActivity {
                     mapview.setImage(ImageSource.resource(R.drawable.b_block));
                 } else if (optionArray[2].equals(spinner.getItemAtPosition(i).toString())) {
                     mapview.setImage(ImageSource.resource(R.drawable.c_block));
-/*                }else if(optionArray[3].equals(spinner.getItemAtPosition(i).toString())) {
+                }else if(optionArray[3].equals(spinner.getItemAtPosition(i).toString())) {
                     mapview.setImage(ImageSource.resource(R.drawable.d_block));
                 }else if(optionArray[4].equals(spinner.getItemAtPosition(i).toString())) {
                     mapview.setImage(ImageSource.resource(R.drawable.e_block));
@@ -89,10 +89,10 @@ public class Mappage extends AppCompatActivity {
                     mapview.setImage(ImageSource.resource(R.drawable.s_block));
                 }else if(optionArray[11].equals(spinner.getItemAtPosition(i).toString())) {
                     mapview.setImage(ImageSource.resource(R.drawable.t_block));
-                }*/
+                }
 
                 }
-            }
+
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
