@@ -12,11 +12,12 @@
     <string name="title_activity_maps">Map</string>
     <string name="map_spec_select">Map Specification</string>
 
-        <string-array name="Options">
+    <string-array name="Options">
         <item>A Block</item>
         <item>B Block</item>
         <item>C Block</item>
         <item>D Block</item>
-        <item>Front Field</item></string-array>
+        <item>Front Field</item>
+    </string-array>
 
 </resources>
