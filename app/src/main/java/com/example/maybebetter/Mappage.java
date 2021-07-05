@@ -114,7 +114,7 @@ public class Mappage extends AppCompatActivity {
     }
 
     public void OnCustomToggleClick(View view) {
-        maplabelview.setImage(ImageSource.resource(R.drawable.fullmap));
+        maplabelview.setImage(ImageSource.resource(R.drawable.labels));
     }
 }
 
