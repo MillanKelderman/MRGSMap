@@ -31,12 +31,13 @@ public class Mappage extends AppCompatActivity {
 
 
     SubsamplingScaleImageView mapview;
+    SubsamplingScaleImageView maplabelview;
 
 
     TextView specifications;
     boolean[] selectedchoice;
     ArrayList<Integer> optionlist = new ArrayList<>();
-    String[] optionArray = {"A block", "B block", "C block", "D Block", "E block", "G block", "H block", "M Block", "P block",  "R block", "S block", "T Block"};
+    String[] optionArray = {"", "A block", "B block", "C block", "D Block", "E block", "G block", "H block", "M Block", "P block",  "R block", "S block", "T Block"};
 
 
     //This is old code, used initally to zoom in and out of the map
@@ -54,10 +55,8 @@ public class Mappage extends AppCompatActivity {
         setContentView(R.layout.activity_mappage2);
         //To be able to maneuver the map
         mapview = findViewById(R.id.mapview);
-        mapview.setImage(ImageSource.resource(R.drawable.fullmap));
-/*        mapview.setImage(ImageSource.resource(R.drawable.frontfield));*/
-
-
+        //To open the labels image ontop of the mapview
+        maplabelview = findViewById(R.id.maplabelview);
         spinner = findViewById(R.id.options_spinner);
 
         ArrayAdapter arrayAdapter=new ArrayAdapter(Mappage.this,android.R.layout.simple_dropdown_item_1line,optionArray);
@@ -66,28 +65,30 @@ public class Mappage extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (optionArray[0].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.fullmap));
+                }else if (optionArray[1].equals(spinner.getItemAtPosition(i).toString())) {
                     mapview.setImage(ImageSource.resource(R.drawable.a_block));
-                } else if (optionArray[1].equals(spinner.getItemAtPosition(i).toString())) {
-                    mapview.setImage(ImageSource.resource(R.drawable.b_block));
                 } else if (optionArray[2].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.b_block));
+                } else if (optionArray[3].equals(spinner.getItemAtPosition(i).toString())) {
                     mapview.setImage(ImageSource.resource(R.drawable.c_block));
-                }else if(optionArray[3].equals(spinner.getItemAtPosition(i).toString())) {
-                    mapview.setImage(ImageSource.resource(R.drawable.d_block));
                 }else if(optionArray[4].equals(spinner.getItemAtPosition(i).toString())) {
+                    mapview.setImage(ImageSource.resource(R.drawable.d_block));
+                }else if(optionArray[5].equals(spinner.getItemAtPosition(i).toString())) {
                     mapview.setImage(ImageSource.resource(R.drawable.e_block));
-                }else if(optionArray[5].equals(spinner.getItemAtPosition(i).toString())){
-                    mapview.setImage(ImageSource.resource(R.drawable.g_block));
                 }else if(optionArray[6].equals(spinner.getItemAtPosition(i).toString())){
-                    mapview.setImage(ImageSource.resource(R.drawable.h_block));
+                    mapview.setImage(ImageSource.resource(R.drawable.g_block));
                 }else if(optionArray[7].equals(spinner.getItemAtPosition(i).toString())){
-                    mapview.setImage(ImageSource.resource(R.drawable.m_block));
+                    mapview.setImage(ImageSource.resource(R.drawable.h_block));
                 }else if(optionArray[8].equals(spinner.getItemAtPosition(i).toString())){
-                    mapview.setImage(ImageSource.resource(R.drawable.p_block));
+                    mapview.setImage(ImageSource.resource(R.drawable.m_block));
                 }else if(optionArray[9].equals(spinner.getItemAtPosition(i).toString())){
-                    mapview.setImage(ImageSource.resource(R.drawable.r_block));
+                    mapview.setImage(ImageSource.resource(R.drawable.p_block));
                 }else if(optionArray[10].equals(spinner.getItemAtPosition(i).toString())){
+                    mapview.setImage(ImageSource.resource(R.drawable.r_block));
+                }else if(optionArray[11].equals(spinner.getItemAtPosition(i).toString())){
                     mapview.setImage(ImageSource.resource(R.drawable.s_block));
-                }else if(optionArray[11].equals(spinner.getItemAtPosition(i).toString())) {
+                }else if(optionArray[12].equals(spinner.getItemAtPosition(i).toString())) {
                     mapview.setImage(ImageSource.resource(R.drawable.t_block));
                 }
 
@@ -96,12 +97,32 @@ public class Mappage extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                mapview.setImage(ImageSource.resource(R.drawable.fullmap));
             }
         });
 
 
-        /*imageView = (ImageView) findViewById(R.id.frontfieldimg);*/
+        //call the kamar image
+        kamarimagebutton = findViewById(R.id.kamar);
+        kamarimagebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentLoadNewActivity = new Intent(Mappage.this, KamarPage.class);
+                startActivity(intentLoadNewActivity);
+            }
+        });
+    }
+
+    public void OnCustomToggleClick(View view) {
+        maplabelview.setImage(ImageSource.resource(R.drawable.fullmap));
+    }
+}
+
+
+
+
+
+/*imageView = (ImageView) findViewById(R.id.frontfieldimg);*/
    /*     togglebutton = findViewById(R.id.frontfieldtoggle);
 
         togglebutton.setOnClickListener(new View.OnClickListener() {
@@ -114,17 +135,6 @@ public class Mappage extends AppCompatActivity {
             }
         });*/
 
-        //call the kamar image
-        kamarimagebutton = findViewById(R.id.kamar);
-        kamarimagebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(Mappage.this, KamarPage.class);
-                startActivity(intentLoadNewActivity);
-            }
-        });
-    }
-}
        /* //assign the variable for dropdown spinner
         specifications = findViewById(R.id.dropdown_choice);
 
