@@ -11,6 +11,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_maps">Map</string>
     <string name="map_spec_select">Map Specification</string>
+    <string name="monday">Input Monday Periods in order</string>
 
     <string-array name="Options">
         <item>A Block</item>
