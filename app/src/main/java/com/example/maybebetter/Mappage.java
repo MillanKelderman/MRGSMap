@@ -114,7 +114,13 @@ public class Mappage extends AppCompatActivity {
     }
 
     public void OnCustomToggleClick(View view) {
-        maplabelview.setImage(ImageSource.resource(R.drawable.labels));
+        System.out.println(maplabelview.getVisibility());
+        if (maplabelview.getVisibility() == View.INVISIBLE){
+            maplabelview.setImage(ImageSource.resource(R.drawable.labels));
+        } else {
+            System.out.println("hello");
+            maplabelview.setVisibility(View.INVISIBLE);
+        }
     }
 }
 
