@@ -53,10 +53,14 @@ public class Mappage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mappage2);
+
+
         //To be able to maneuver the map
         mapview = findViewById(R.id.mapview);
         //To open the labels image ontop of the mapview
         maplabelview = findViewById(R.id.maplabelview);
+        maplabelview.setImage(ImageSource.resource(R.drawable.labels));
+        maplabelview.setVisibility(View.INVISIBLE);
         spinner = findViewById(R.id.options_spinner);
 
         ArrayAdapter arrayAdapter=new ArrayAdapter(Mappage.this,android.R.layout.simple_dropdown_item_1line,optionArray);
@@ -114,9 +118,10 @@ public class Mappage extends AppCompatActivity {
     }
 
     public void OnCustomToggleClick(View view) {
+
         System.out.println(maplabelview.getVisibility());
         if (maplabelview.getVisibility() == View.INVISIBLE){
-            maplabelview.setImage(ImageSource.resource(R.drawable.labels));
+            maplabelview.setVisibility(View.VISIBLE);
         } else {
             System.out.println("hello");
             maplabelview.setVisibility(View.INVISIBLE);
