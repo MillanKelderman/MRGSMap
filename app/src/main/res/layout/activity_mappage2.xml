@@ -42,6 +42,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginBottom="16dp"
+        android:background="#00FFFFFF"
         android:src="@drawable/ic_world"
         app:layout_constraintBottom_toBottomOf="@+id/mapview"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,14 +76,14 @@
         android:id="@+id/labeltoggleButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/ic_labelbutton"
         android:onClick="OnCustomToggleClick"
         android:textOff=""
         android:textOn=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/kamar"
-        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -92,10 +93,10 @@
         android:text="@string/timetable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.959" />
+        app:layout_constraintVertical_bias="0.97" />
 
     <Button
         android:id="@+id/OpenTimeTable"

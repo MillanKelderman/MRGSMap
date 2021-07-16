@@ -8,8 +8,8 @@
 
     <WebView
         android:id="@+id/kamarwebview"
-        android:layout_width="407dp"
-        android:layout_height="661dp"
+        android:layout_width="413dp"
+        android:layout_height="486dp"
         android:layout_marginTop="114dp"
         android:layout_marginBottom="131dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,22 +17,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageButton
         android:id="@+id/kamar"
-        android:layout_width="72dp"
+        android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginStart="323dp"
-        android:layout_marginLeft="323dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_world"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_world"
-        tools:ignore="VectorDrawableCompat" />
-
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/emblem"
@@ -44,4 +41,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/emblem" />
+
+    <ImageButton
+        android:id="@+id/mapreturn"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/kamar"
+        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_pin_in_the_map" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
