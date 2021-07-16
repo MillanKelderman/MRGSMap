@@ -1,9 +1,7 @@
 package com.example.maybebetter;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,11 +17,9 @@ import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 
 public class Mappage extends AppCompatActivity {
-    final static String EXTRA_IDs = "com.example.maybebetter.timetable";
     Button togglebutton;
     ImageView imageView;
 
@@ -63,7 +59,7 @@ public class Mappage extends AppCompatActivity {
         maplabelview.setVisibility(View.INVISIBLE);
         spinner = findViewById(R.id.options_spinner);
 
-        ArrayAdapter arrayAdapter=new ArrayAdapter(Mappage.this,android.R.layout.simple_dropdown_item_1line,optionArray);
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(Mappage.this,android.R.layout.simple_dropdown_item_1line,optionArray);
         spinner.setAdapter((arrayAdapter));
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -96,7 +92,7 @@ public class Mappage extends AppCompatActivity {
                     mapview.setImage(ImageSource.resource(R.drawable.t_block));
                 }
 
-                }
+            }
 
 
             @Override
@@ -106,20 +102,16 @@ public class Mappage extends AppCompatActivity {
         });
 
 
-        //call the kamar image
+        //call the Kamar image
         kamarimagebutton = findViewById(R.id.kamar);
-        kamarimagebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(Mappage.this, KamarPage.class);
-                startActivity(intentLoadNewActivity);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
+        kamarimagebutton.setOnClickListener(v -> {
+            Intent intentLoadNewActivity = new Intent(Mappage.this, KamarPage.class);
+            startActivity(intentLoadNewActivity);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
     } //
 
     public void OnCustomToggleClick(View view) {
-
         System.out.println(maplabelview.getVisibility());
         if (maplabelview.getVisibility() == View.INVISIBLE){
             maplabelview.setVisibility(View.VISIBLE);
@@ -130,23 +122,16 @@ public class Mappage extends AppCompatActivity {
     }
     public void toTimeTableSetter(View view) {
         finish();
-        Intent getInformation = getIntent();
-        String number = getInformation.getStringExtra(MainActivity.EXTRA_ID);
         Intent toTimeTableScreen = new Intent(Mappage.this, timetable.class);
-        toTimeTableScreen.putExtra(EXTRA_IDs, number);
-        toTimeTableScreen = new Intent(Mappage.this, timetable.class);
         startActivity(toTimeTableScreen);
     }
 
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }
-
-
-
 
 
 

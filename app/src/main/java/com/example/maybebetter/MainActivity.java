@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    final static String EXTRA_ID = "com.example.maybebetter.timetable";
 
     private Button button;
     private TextInputEditText Username;
@@ -61,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMapPage() {
+        ((GlobalVariable) this.getApplication()).setGlobalVariable(Username.getText() + ".txt");
         Intent intent = new Intent(this, Mappage.class);
-        intent.putExtra(EXTRA_ID, Username.getText() + ".txt");
         startActivity(intent);
     }
 

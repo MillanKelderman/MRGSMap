@@ -1,6 +1,8 @@
 package com.example.maybebetter;
 
-public class GlobalVariable {
+import android.app.Application;
+
+public class GlobalVariable extends Application {
     private String ID;
 
     public String getGlobalVariable() {

@@ -8,7 +8,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class SavingToFile {
-
     Context context;
     ContextWrapper contextWrapper;
 
