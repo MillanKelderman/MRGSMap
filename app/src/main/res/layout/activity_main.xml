@@ -71,13 +71,15 @@
         app:srcCompat="@drawable/emblem" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/saveidbut"
         android:layout_width="150dp"
         android:layout_height="74dp"
         android:layout_marginStart="155dp"
         android:layout_marginLeft="155dp"
         android:layout_marginEnd="163dp"
         android:layout_marginRight="163dp"
+        android:background="@drawable/file_success_button"
+        android:textColor="@color/white"
         android:text="@string/signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

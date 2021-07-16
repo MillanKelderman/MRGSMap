@@ -12,6 +12,15 @@
     <string name="title_activity_maps">Map</string>
     <string name="map_spec_select">Map Specification</string>
     <string name="monday">Input Monday Periods in order</string>
+    <string name="timetable">TimeTable</string>
+    <string name="open_timetable">Open TimeTable</string>
+    <string name="ConfirmTimeTable">Confirm</string>
+    <string name="period_1">Period 1</string>
+    <string name="period_5">Period 5</string>
+    <string name="period_4">Period 4</string>
+    <string name="period_3">Period 3</string>
+    <string name="period_2">Period 2</string>
+    <string name="mrgs_logo">MRGS_LOGO</string>
 
     <string-array name="Options">
         <item>A Block</item>

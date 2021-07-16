@@ -61,26 +61,6 @@
         app:layout_constraintVertical_bias="0.13999999"
         app:srcCompat="@drawable/emblem" />
 
-<!--    <ImageView
-        android:id="@+id/frontfieldimg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/frontfield" />-->
-
-   <!-- <ToggleButton
-        android:id="@+id/frontfieldtoggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ToggleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emblem" />
--->
     <Spinner
         android:id="@+id/options_spinner"
         android:layout_width="264dp"
@@ -105,6 +85,31 @@
         app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/TimeTableText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timetable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
+
+    <Button
+        android:id="@+id/OpenTimeTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toTimeTableSetter"
+        android:text="@string/open_timetable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.152" />
+
 
     <!--    <TextView
            android:id="@+id/dropdown_choice"
@@ -122,4 +127,24 @@
            app:layout_constraintHorizontal_bias="0.497"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toTopOf="parent" />-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    <ImageView
+        android:id="@+id/frontfieldimg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/frontfield" />-->
+
+<!--    &lt;!&ndash; <ToggleButton
+         android:id="@+id/frontfieldtoggle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="ToggleButton"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.049"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/emblem" />-->
+ </androidx.constraintlayout.widget.ConstraintLayout>

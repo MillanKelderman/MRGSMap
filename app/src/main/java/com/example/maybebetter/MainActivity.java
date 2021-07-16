@@ -19,35 +19,41 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private TextInputEditText Username;
+
+    SavingToFile savingToFile;
+    GlobalVariable globalVariable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        globalVariable = new GlobalVariable();
+        savingToFile = new SavingToFile(MainActivity.this);
 
-        if (fileDosentExist("StudentIDFile.txt")){
-            write("StudentIDFile.txt", "");
-        }
+
+
         ImageSlider imageSlider = findViewById(R.id.imageslider);
-        Username = findViewById(R.id.textInputLayout);
-        button = findViewById(R.id.button);
+        Username = findViewById(R.id.textInputEditText);
+        button = findViewById(R.id.saveidbut);
         button.setOnClickListener(v -> {
-            if (Username.getText().length() ==5){
-                String fileData = readFile("StudentIDFile.txt");
-                String[] DataString = fileData.split("\n");
-                write("StudentIDFile.txt", String.valueOf(Username.getText()));
-                openMappage();
-            }else{
-                Toast.makeText(this, "saving file successful", Toast.LENGTH_SHORT).show();
+            if (Objects.requireNonNull(Username.getText()).length() == 5) {
+                if (fileDoesNotExist(Username.getText() + ".txt")) {
+                    savingToFile.write(Username.getText() + ".txt",Username.getText() + ".txt" + "\n");
+                }
+                savingToFile.write(Username.getText() + ".txt", String.valueOf(Username.getText()));
+                globalVariable.setGlobalVariable(Username.getText() + ".txt");
+                openMapPage();
+            } else {
+                Toast.makeText(this, "StudentID must be 5 digits", Toast.LENGTH_SHORT).show();
             }
-
-
-
         });
+
 
 
 
@@ -65,44 +71,17 @@ public class MainActivity extends AppCompatActivity {
         imageSlider.setImageList(slideModels, true);
 
 
+
     }
-    public void openMappage() {
+
+    public void openMapPage() {
         Intent intent = new Intent(this, Mappage.class);
         startActivity(intent);
-
-
-    }
-    public void write(String file, String textData) {
-        try {
-            FileOutputStream fos = openFileOutput(file, Context.MODE_APPEND);
-            fos.write(textData.getBytes());
-            fos.close();
-            Toast.makeText(this, "saving file successful", Toast.LENGTH_SHORT).show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Error saving file", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
-    public String readFile(String file) {
-        String text = "";
-        try {
-            FileInputStream fis = openFileInput(file);
-            int size = fis.available();
-            byte[] buffer = new byte[size];
-            fis.read(buffer);
-            fis.close();
-            text = new String(buffer);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Error reading file", Toast.LENGTH_SHORT).show();
-        }
-        return text;
-    }
-    public boolean fileDosentExist(String fname) {
-        File file = getBaseContext().getFileStreamPath(fname);
+    public boolean fileDoesNotExist(String name) {
+        File file = getBaseContext().getFileStreamPath(name);
         return !file.exists();
     }
+
 }
