@@ -23,7 +23,7 @@ import java.util.Collections;
 
 
 public class Mappage extends AppCompatActivity {
-
+    final static String EXTRA_IDs = "com.example.maybebetter.timetable";
     Button togglebutton;
     ImageView imageView;
 
@@ -37,7 +37,7 @@ public class Mappage extends AppCompatActivity {
     TextView specifications;
     boolean[] selectedchoice;
     ArrayList<Integer> optionlist = new ArrayList<>();
-    String[] optionArray = {"", "A block", "B block", "C block", "D Block", "E block", "G block", "H block", "M Block", "P block",  "R block", "S block", "T Block"};
+    String[] optionArray = {"Options", "A block", "B block", "C block", "D Block", "E block", "G block", "H block", "M Block", "P block",  "R block", "S block", "T Block"};
 
 
     //This is old code, used initally to zoom in and out of the map
@@ -113,9 +113,10 @@ public class Mappage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(Mappage.this, KamarPage.class);
                 startActivity(intentLoadNewActivity);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-    }
+    } //
 
     public void OnCustomToggleClick(View view) {
 
@@ -127,7 +128,23 @@ public class Mappage extends AppCompatActivity {
             maplabelview.setVisibility(View.INVISIBLE);
         }
     }
+    public void toTimeTableSetter(View view) {
+        finish();
+        Intent getInformation = getIntent();
+        String number = getInformation.getStringExtra(MainActivity.EXTRA_ID);
+        Intent toTimeTableScreen = new Intent(Mappage.this, timetable.class);
+        toTimeTableScreen.putExtra(EXTRA_IDs, number);
+        toTimeTableScreen = new Intent(Mappage.this, timetable.class);
+        startActivity(toTimeTableScreen);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }
+
 
 
 
