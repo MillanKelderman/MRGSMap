@@ -33,7 +33,6 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:hint="@string/action_sign_in"
-        android:backgroundTint="@color/white"
         app:counterEnabled="true"
         app:counterMaxLength="5"
         app:endIconMode="clear_text"
@@ -41,12 +40,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:boxBackgroundColor="@color/white"
+        android:background="@color/white"
+        android:alpha="0.8"
         app:startIconDrawable="@drawable/ic_person">
 
         <com.google.android.material.textfield.TextInputEditText
             android:alpha="0.8"
             android:id="@+id/textInputEditText"
             android:background="@color/white"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -58,9 +61,7 @@
         android:id="@+id/imageView"
         android:layout_width="114dp"
         android:layout_height="140dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="750dp"
+        android:layout_marginBottom="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

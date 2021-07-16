@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.File;
@@ -21,26 +22,36 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
-    private TextInputLayout Username;
+    private TextInputEditText Username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         if (fileDosentExist("StudentIDFile.txt")){
             write("StudentIDFile.txt", "");
         }
+        ImageSlider imageSlider = findViewById(R.id.imageslider);
         Username = findViewById(R.id.textInputLayout);
         button = findViewById(R.id.button);
         button.setOnClickListener(v -> {
-            String fileData = readFile("StudentIDFile.txt");
-            String[] DataString = fileData.split("\n");
-            write("StudentIDFile.txt", String.valueOf(Username.getEditText().getText()));
-            openMappage();
+            if (Username.getText().length() ==5){
+                String fileData = readFile("StudentIDFile.txt");
+                String[] DataString = fileData.split("\n");
+                write("StudentIDFile.txt", String.valueOf(Username.getText()));
+                openMappage();
+            }else{
+                Toast.makeText(this, "saving file successful", Toast.LENGTH_SHORT).show();
+            }
+
+
+
         });
 
 
-        ImageSlider imageSlider = findViewById(R.id.imageslider);
+
+
 
         List<SlideModel> slideModels = new ArrayList<>();
         slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Diversity.jpg", "Diversity"));
