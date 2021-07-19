@@ -3,7 +3,6 @@ package com.example.maybebetter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,13 +35,10 @@ public class timetable extends AppCompatActivity {
         savingToFile = new SavingToFile(this);
 
         goback = findViewById(R.id.mapreturn);
-        goback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(timetable.this, Mappage.class);
-                startActivity(intentLoadNewActivity);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-            }
+        goback.setOnClickListener(v -> {
+            Intent intentLoadNewActivity = new Intent(timetable.this, Mappage.class);
+            startActivity(intentLoadNewActivity);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         });
 
         fileName = ((GlobalVariable) this.getApplication()).getGlobalVariable();
@@ -85,11 +81,11 @@ public class timetable extends AppCompatActivity {
         String p5 = period_5.getText().toString().replace(" ", "_");
         String[] period = {p1, p2, p3, p4, p5};
 
-        String period_1_class = periodOneSpinner.getSelectedItem().toString();
-        String period_2_class = periodTwoSpinner.getSelectedItem().toString();
-        String period_3_class = periodThreeSpinner.getSelectedItem().toString();
-        String period_4_class = periodFourSpinner.getSelectedItem().toString();
-        String period_5_class = periodFiveSpinner.getSelectedItem().toString();
+        String period_1_class = periodOneSpinner.getSelectedItem().toString().replace(" ","_");
+        String period_2_class = periodTwoSpinner.getSelectedItem().toString().replace(" ","_");
+        String period_3_class = periodThreeSpinner.getSelectedItem().toString().replace(" ","_");
+        String period_4_class = periodFourSpinner.getSelectedItem().toString().replace(" ","_");
+        String period_5_class = periodFiveSpinner.getSelectedItem().toString().replace(" ","_");
 
         String[] periodClass = {period_1_class, period_2_class, period_3_class, period_4_class, period_5_class};
 

@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                     savingToFile.write(Username.getText() + ".txt", Username.getText() + ".txt");
                     savingToFile.write(Username.getText() + ".txt", " " + Username.getText() + "\n");
                 }
-
                 openMapPage();
             } else {
                 Toast.makeText(this, "saving file successful", Toast.LENGTH_SHORT).show();
