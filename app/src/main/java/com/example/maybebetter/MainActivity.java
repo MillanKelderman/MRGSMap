@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 openMapPage();
             } else {
-                Toast.makeText(this, "saving file successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "StudentID must be 5 digits!", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -22,6 +22,8 @@
     <string name="period_2">Period 2</string>
     <string name="mrgs_logo">MRGS_LOGO</string>
     <string name="what_do_you_think_about_this_app">What do you think about this app?</string>
+    <string name="how_could_this_app_be_improved_or_worked_on_further_let_me_know">How could this app be improved or worked on further, let me know!</string>
+    <string name="submit">Submit</string>
 
     <string-array name="Options">
         <item>A Block</item>

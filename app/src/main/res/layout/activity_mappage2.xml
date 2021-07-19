@@ -107,10 +107,10 @@
         android:id="@+id/OpenTimeTable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="toTimeTableSetter"
         android:background="@drawable/file_success_button"
-        android:textColor="@color/white"
+        android:onClick="toTimeTableSetter"
         android:text="@string/open_timetable"
+        android:textColor="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.938"
@@ -158,13 +158,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/frontfield" />-->
 
-<!--    &lt;!&ndash; <ToggleButton
-         android:id="@+id/frontfieldtoggle"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="ToggleButton"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.049"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/emblem" />-->
- </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    &lt;!&ndash; <ToggleButton
+             android:id="@+id/frontfieldtoggle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="ToggleButton"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintHorizontal_bias="0.049"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/emblem" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,14 +34,45 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
-        android:layout_width="300dp"
-        android:maxLines="50"
-        android:layout_height="134dp"
+        android:layout_width="328dp"
+        android:layout_height="184dp"
+        android:layout_marginBottom="372dp"
+        android:background="@drawable/feedback_layout"
         android:ems="10"
-        android:gravity="start|top"
+        android:gravity="top"
+        android:hint="@string/how_could_this_app_be_improved_or_worked_on_further_let_me_know"
         android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="177dp" />
+        android:maxLines="150"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/submission"
+        android:layout_width="119dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="276dp"
+        android:background="@drawable/file_success_button"
+        android:text="@string/submit"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/mapreturn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="52dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_pin_in_the_map" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
