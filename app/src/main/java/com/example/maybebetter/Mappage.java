@@ -25,7 +25,8 @@ public class Mappage extends AppCompatActivity {
     SubsamplingScaleImageView maplabelview;
     //Open KamarActivity
     ImageButton kamarimagebutton;
-
+    //Open Feedback Actitivty
+    ImageButton feedback;
     boolean[] selectedchoice;
     ArrayList<Integer> optionlist = new ArrayList<>();
     String[] optionArray = {"Options", "A block", "B block", "C block", "D Block", "E block",
@@ -100,6 +101,15 @@ public class Mappage extends AppCompatActivity {
         kamarimagebutton = findViewById(R.id.kamar);
         kamarimagebutton.setOnClickListener(v -> {
             Intent intentLoadNewActivity = new Intent(Mappage.this, KamarPage.class);
+            startActivity(intentLoadNewActivity);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+
+        });
+
+        feedback = findViewById(R.id.FeedbackButton);
+        feedback.setOnClickListener(v -> {
+            Intent intentLoadNewActivity = new Intent(Mappage.this, FeedbackActivity.class);
             startActivity(intentLoadNewActivity);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });

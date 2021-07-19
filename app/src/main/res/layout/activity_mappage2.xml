@@ -23,7 +23,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/maplabelview"
@@ -39,14 +39,14 @@
 
     <ImageButton
         android:id="@+id/kamar"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="80dp"
+        android:layout_height="81dp"
+        android:layout_marginBottom="4dp"
         android:background="#00FFFFFF"
         android:src="@drawable/ic_world"
         app:layout_constraintBottom_toBottomOf="@+id/mapview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -59,14 +59,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13999999"
+        app:layout_constraintVertical_bias="0.15"
         app:srcCompat="@drawable/emblem" />
 
     <Spinner
         android:id="@+id/options_spinner"
-        android:layout_width="264dp"
-        android:layout_height="56dp"
+        android:layout_width="263dp"
+        android:layout_height="42dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/style_spinner"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/emblem"
@@ -74,9 +77,9 @@
 
     <ToggleButton
         android:id="@+id/labeltoggleButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="62dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/ic_labelbutton"
         android:onClick="OnCustomToggleClick"
         android:textOff=""
@@ -88,22 +91,25 @@
 
     <Button
         android:id="@+id/TimeTableText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/timetable"
+        android:layout_width="59dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="98dp"
+        android:background="@drawable/ic_baseline_assignment_24"
         android:onClick="timetableChecker"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintEnd_toStartOf="@+id/labeltoggleButton"
+        app:layout_constraintHorizontal_bias="0.906"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.972" />
 
     <Button
         android:id="@+id/OpenTimeTable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="toTimeTableSetter"
+        android:background="@drawable/file_success_button"
+        android:textColor="@color/white"
         android:text="@string/open_timetable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +117,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.152" />
+
+    <ImageButton
+        android:id="@+id/FeedbackButton"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="4dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_baseline_feed_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/TimeTableText"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <!--    <TextView

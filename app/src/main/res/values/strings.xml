@@ -21,6 +21,7 @@
     <string name="period_3">Period 3</string>
     <string name="period_2">Period 2</string>
     <string name="mrgs_logo">MRGS_LOGO</string>
+    <string name="what_do_you_think_about_this_app">What do you think about this app?</string>
 
     <string-array name="Options">
         <item>A Block</item>
