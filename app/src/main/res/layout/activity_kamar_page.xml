@@ -7,7 +7,7 @@
     tools:context=".KamarPage">
 
     <WebView
-        android:id="@+id/kamarwebview"
+        android:id="@+id/kamarWebView"
         android:layout_width="413dp"
         android:layout_height="486dp"
         android:layout_marginTop="114dp"
@@ -24,12 +24,12 @@
         android:layout_height="75dp"
         android:layout_marginBottom="16dp"
         android:background="#00FFFFFF"
+        android:contentDescription="@string/image_of_globe"
         android:src="@drawable/ic_world"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="TODO" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/emblem"
@@ -40,10 +40,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/emblem" />
+        app:srcCompat="@drawable/emblem"
+        android:contentDescription="@string/mrgs_emblem" />
 
     <ImageButton
-        android:id="@+id/mapreturn"
+        android:id="@+id/mapReturn"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
@@ -52,6 +53,7 @@
         app:layout_constraintEnd_toStartOf="@+id/kamar"
         app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_pin_in_the_map" />
+        app:srcCompat="@drawable/ic_pin_in_the_map"
+        android:contentDescription="@string/return_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

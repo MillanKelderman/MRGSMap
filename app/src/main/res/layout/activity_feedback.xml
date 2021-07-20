@@ -18,29 +18,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15"
-        app:srcCompat="@drawable/emblem" />
+        app:srcCompat="@drawable/emblem"
+        android:contentDescription="@string/mrgs_emblem" />
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="56dp"
-        android:text="@string/what_do_you_think_about_this_app"
+        android:text="@string/feedback_question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/emblem"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
         android:layout_width="328dp"
         android:layout_height="184dp"
         android:layout_marginBottom="372dp"
         android:background="@drawable/feedback_layout"
         android:ems="10"
         android:gravity="top"
-        android:hint="@string/how_could_this_app_be_improved_or_worked_on_further_let_me_know"
+        android:hint="@string/feedback"
         android:inputType="textMultiLine"
         android:maxLines="150"
         android:padding="10dp"
@@ -48,7 +47,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints=" " />
 
     <Button
         android:id="@+id/submission"
@@ -63,7 +63,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/mapreturn"
+        android:id="@+id/mapReturn"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginBottom="52dp"
@@ -72,7 +72,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_pin_in_the_map" />
+        app:srcCompat="@drawable/ic_pin_in_the_map"
+        android:contentDescription="@string/return_image" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

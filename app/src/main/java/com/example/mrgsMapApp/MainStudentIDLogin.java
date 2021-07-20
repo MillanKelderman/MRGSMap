@@ -1,4 +1,4 @@
-package com.example.maybebetter;
+package com.example.mrgsMapApp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,32 +16,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainStudentIDLogin extends AppCompatActivity {
 
-    private Button button;
-    private TextInputEditText Username;
-
-    SavingToFile savingToFile;
+    private TextInputEditText username;
+    private SavingToFile savingToFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        savingToFile = new SavingToFile(MainActivity.this);
-
+        savingToFile = new SavingToFile(MainStudentIDLogin.this);
+//Calling buttons and sliders for future
         ImageSlider imageSlider = findViewById(R.id.ImageSlider);
-        Username = findViewById(R.id.textInputEditText);
-        button = findViewById(R.id.saveidbut);
+        username = findViewById(R.id.textInputEditText);
+        Button button = findViewById(R.id.saveIdButton);
 
         button.setOnClickListener(v -> {
-            if (Objects.requireNonNull(Username.getText()).length() == 5) {
-                if (fileDoesNotExist(Username.getText() + ".txt")) {
-                    savingToFile.write(Username.getText() + ".txt", Username.getText() + ".txt");
-                    savingToFile.write(Username.getText() + ".txt", " " + Username.getText() + "\n");
+            if (Objects.requireNonNull(username.getText()).length() == 5) {
+                if (fileDoesNotExist(username.getText() + ".txt")) {//If they have inputted ID correctly it will save to file here
+                    savingToFile.write(username.getText() + ".txt", username.getText() + ".txt");
+                    savingToFile.write(username.getText() + ".txt", " " + username.getText() + "\n");
                 }
                 openMapPage();
-            } else {
+            } else { //If the user has not inputted 5 digits It will not allow them to carry on and will give them this toast message
                 Toast.makeText(this, "StudentID must be 5 digits!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -58,14 +56,14 @@ public class MainActivity extends AppCompatActivity {
         imageSlider.setImageList(slideModels, true);
     }
 
-    public void openMapPage() {
-        ((GlobalVariable) this.getApplication()).setGlobalVariable(Username.getText() + ".txt");
-        Intent intent = new Intent(this, Mappage.class);
+    private void openMapPage() {
+        ((GlobalVariable) this.getApplication()).setGlobalVariable(username.getText() + ".txt");
+        Intent intent = new Intent(this, MapPage.class);
         startActivity(intent);
     }
 
-    public boolean fileDoesNotExist(String name) {
+    private boolean fileDoesNotExist(String name) {
         File file = getBaseContext().getFileStreamPath(name);
         return !file.exists();
     }
-}
+}//end of Appcompat Activity.

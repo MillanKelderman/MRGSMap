@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.maybebetter">
+    package="com.example.mrgsMapApp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,18 +12,18 @@
         tools:ignore="ScopedStorage" />
 
     <application
-        android:name=".GlobalVariable"
+        android:name="com.example.mrgsMapApp.GlobalVariable"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Maybebetter">
-        <activity android:name=".FeedbackActivity"></activity>
-        <activity android:name=".timetable" />
-        <activity android:name=".KamarPage" />
-        <activity android:name=".Mappage" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.mrgsMapApp">
+        <activity android:name="com.example.mrgsMapApp.FeedbackActivity" />
+        <activity android:name="com.example.mrgsMapApp.TimeTable" />
+        <activity android:name="com.example.mrgsMapApp.KamarPage" />
+        <activity android:name="com.example.mrgsMapApp.MapPage" />
+        <activity android:name="com.example.mrgsMapApp.MainStudentIDLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

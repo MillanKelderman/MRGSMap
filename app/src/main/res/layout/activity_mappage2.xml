@@ -4,18 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mappage">
-
-    <!-- <ImageView
-         android:id="@+id/imageView"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:scaleType="centerInside"
-         android:src="@drawable/fullmap"/>-->
-
+    tools:context=".MapPage">
 
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-        android:id="@+id/mapview"
+        android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +18,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-        android:id="@+id/maplabelview"
+        android:id="@+id/mapLabelView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
@@ -43,8 +35,9 @@
         android:layout_height="81dp"
         android:layout_marginBottom="4dp"
         android:background="#00FFFFFF"
+        android:contentDescription="@string/image_of_globe"
         android:src="@drawable/ic_world"
-        app:layout_constraintBottom_toBottomOf="@+id/mapview"
+        app:layout_constraintBottom_toBottomOf="@+id/map_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -54,6 +47,7 @@
         android:layout_width="114dp"
         android:layout_height="140dp"
         android:layout_marginBottom="750dp"
+        android:contentDescription="@string/mrgs_emblem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,19 +62,17 @@
         android:layout_height="42dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/style_spinner"
-        android:outlineAmbientShadowColor="@color/white"
-        android:outlineSpotShadowColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/emblem"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
-        android:id="@+id/labeltoggleButton"
+        android:id="@+id/labelToggleButton"
         android:layout_width="62dp"
         android:layout_height="63dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/ic_labelbutton"
+        android:background="@drawable/ic_label_button"
         android:onClick="OnCustomToggleClick"
         android:textOff=""
         android:textOn=""
@@ -97,14 +89,13 @@
         android:background="@drawable/ic_baseline_assignment_24"
         android:onClick="timetableChecker"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/labeltoggleButton"
+        app:layout_constraintEnd_toStartOf="@+id/labelToggleButton"
         app:layout_constraintHorizontal_bias="0.906"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.972" />
 
     <Button
-        android:id="@+id/OpenTimeTable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/file_success_button"
@@ -124,47 +115,10 @@
         android:layout_height="88dp"
         android:layout_marginBottom="4dp"
         android:background="#00FFFFFF"
+        android:contentDescription="@string/feedback_image"
         android:src="@drawable/ic_baseline_feed_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/TimeTableText"
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent" />
-
-
-    <!--    <TextView
-           android:id="@+id/dropdown_choice"
-           android:layout_width="213dp"
-           android:layout_height="61dp"
-           android:layout_centerInParent="true"
-           android:background="@android:drawable/editbox_background"
-           android:drawableRight="@android:drawable/arrow_down_float"
-           android:drawablePadding="16dp"
-           android:hint="@string/map_spec_select"
-           android:padding="12dp"
-           android:textSize="18sp"
-           app:drawableRightCompat="@android:drawable/arrow_down_float"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintHorizontal_bias="0.497"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--    <ImageView
-        android:id="@+id/frontfieldimg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/frontfield" />-->
-
-    <!--    &lt;!&ndash; <ToggleButton
-             android:id="@+id/frontfieldtoggle"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="ToggleButton"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintHorizontal_bias="0.049"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@+id/emblem" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

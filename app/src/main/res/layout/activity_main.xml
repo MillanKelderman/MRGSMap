@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainStudentIDLogin">
 
 
     <com.denzcoskun.imageslider.ImageSlider
@@ -32,7 +32,10 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:alpha="0.8"
+        android:background="@color/white"
         android:hint="@string/action_sign_in"
+        app:boxBackgroundColor="@color/white"
         app:counterEnabled="true"
         app:counterMaxLength="5"
         app:endIconMode="clear_text"
@@ -40,25 +43,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:boxBackgroundColor="@color/white"
-        android:background="@color/white"
-        android:alpha="0.8"
         app:startIconDrawable="@drawable/ic_person">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:alpha="0.8"
             android:id="@+id/textInputEditText"
-            android:background="@color/white"
-            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:background="@color/white"
+            android:inputType="number"
 
             android:maxLength="5" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <ImageView
-        android:id="@+id/imageView"
         android:layout_width="114dp"
         android:layout_height="140dp"
         android:layout_marginBottom="600dp"
@@ -68,51 +67,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/emblem" />
+        app:srcCompat="@drawable/emblem"
+        android:contentDescription="@string/mrgs_emblem" />
 
     <Button
-        android:id="@+id/saveidbut"
+        android:id="@+id/saveIdButton"
         android:layout_width="150dp"
         android:layout_height="74dp"
         android:layout_marginStart="155dp"
-        android:layout_marginLeft="155dp"
         android:layout_marginEnd="163dp"
-        android:layout_marginRight="163dp"
         android:background="@drawable/file_success_button"
+        android:text="@string/sign_in"
         android:textColor="@color/white"
-        android:text="@string/signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         app:layout_constraintVertical_bias="0.19" />
-
-
-    <!-- <com.google.android.material.textfield.TextInputLayout
-         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_marginStart="32dp"
-         android:layout_marginLeft="32dp"
-         android:layout_marginEnd="32dp"
-         android:layout_marginRight="32dp"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.375">
-
-         <AutoCompleteTextView
-             android:id="@+id/autoCompleteTextView"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_weight="1"
-             android:inputType="none"
-             android:text="Year Level" />
-
-     </com.google.android.material.textfield.TextInputLayout>-->
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

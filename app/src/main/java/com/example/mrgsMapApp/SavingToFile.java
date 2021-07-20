@@ -1,4 +1,4 @@
-package com.example.maybebetter;
+package com.example.mrgsMapApp;
 
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -7,9 +7,10 @@ import android.widget.Toast;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class SavingToFile {
-    Context context;
-    ContextWrapper contextWrapper;
+    final Context context;
+    final ContextWrapper contextWrapper;
 
     SavingToFile(Context context){
         this.context = context;

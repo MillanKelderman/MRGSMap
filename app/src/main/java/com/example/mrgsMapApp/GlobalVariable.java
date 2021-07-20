@@ -1,4 +1,4 @@
-package com.example.maybebetter;
+package com.example.mrgsMapApp;
 
 import android.app.Application;
 
