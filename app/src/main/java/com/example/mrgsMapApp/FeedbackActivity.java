@@ -14,15 +14,16 @@ public class FeedbackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
-
+        //links objects inside the XML to the variables in the method
+        ImageButton goBack = findViewById(R.id.mapReturn);
         Button submit = findViewById(R.id.submission);
         submit.setOnClickListener(v -> Toast.makeText(this, "Thanks for the feedback!", Toast.LENGTH_SHORT).show());
 
-        ImageButton goBack = findViewById(R.id.mapReturn);
-        goBack.setOnClickListener(v -> {
-            Intent intentLoadNewActivity = new Intent(FeedbackActivity.this, MapPage.class);
+
+        goBack.setOnClickListener(v -> { //listens if the button 'goBack' has been clicked
+            Intent intentLoadNewActivity = new Intent(FeedbackActivity.this, MapPage.class); //sends users to MapPage screen
             startActivity(intentLoadNewActivity);
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right); //animation for smoother transition
         });
     }
 }

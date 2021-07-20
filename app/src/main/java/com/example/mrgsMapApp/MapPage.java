@@ -23,7 +23,7 @@ public class MapPage extends AppCompatActivity {
     private Spinner spinner;
     private SubsamplingScaleImageView mapView;
     private SubsamplingScaleImageView mapLabelView;
-    private final String[] optionArray = {"Options", "A block", "B block", "C block", "D Block", "E block",
+    private final String[] OPTIONS_ARRAY = {"Options", "A block", "B block", "C block", "D Block", "E block",
             "G block", "H block", "M Block", "P block", "R block", "S block", "T Block"};
 
     SavingToFile savingToFile;
@@ -45,36 +45,36 @@ public class MapPage extends AppCompatActivity {
         //calls the Spinner from XML file
         spinner = findViewById(R.id.options_spinner);
         //
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MapPage.this, android.R.layout.simple_dropdown_item_1line, optionArray);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MapPage.this, android.R.layout.simple_dropdown_item_1line, OPTIONS_ARRAY);
         spinner.setAdapter((arrayAdapter));
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
+            @Override //checks what user selects and matches it to the OPTIONS_ARRAY values, if it matches its sets a specific map image
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (optionArray[0].equals(spinner.getItemAtPosition(i).toString())) {
+                if (OPTIONS_ARRAY[0].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.fullmap)); //if nothing is selected have the original image 'full_map' showing
-                } else if (optionArray[1].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[1].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.a_block));//when something does get selected, it goes down the list.
-                } else if (optionArray[2].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[2].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.b_block));
-                } else if (optionArray[3].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[3].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.c_block));
-                } else if (optionArray[4].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[4].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.d_block));
-                } else if (optionArray[5].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[5].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.e_block));
-                } else if (optionArray[6].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[6].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.g_block));
-                } else if (optionArray[7].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[7].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.h_block));
-                } else if (optionArray[8].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[8].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.m_block));
-                } else if (optionArray[9].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[9].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.p_block));
-                } else if (optionArray[10].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[10].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.r_block));
-                } else if (optionArray[11].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[11].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.s_block));
-                } else if (optionArray[12].equals(spinner.getItemAtPosition(i).toString())) {
+                } else if (OPTIONS_ARRAY[12].equals(spinner.getItemAtPosition(i).toString())) {
                     mapView.setImage(ImageSource.resource(R.drawable.t_block));
                 }
             }
@@ -104,35 +104,35 @@ public class MapPage extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
     }
-
+    //The purpose of using both Public and Private timetableChecker is because you can not access a private method directly
     public void timetableChecker(View view) throws InterruptedException {
         timetableChecker();
     }
 
     private void timetableChecker() throws InterruptedException {
-        String filename = ((GlobalVariable) this.getApplication()).getGlobalVariable();
-        String[] fileData = Arrays.toString(savingToFile.readFile(filename).split("\n")).split(",");
-        String[][] classAndId = new String[fileData.length - 1][];
-        for (int i = 1; i < fileData.length; i++) {
+        String filename = ((GlobalVariable) this.getApplication()).getGlobalVariable(); //gets the variable that was set by the SetGlobalVariable in the MainStudentIDLogin page
+        String[] fileData = Arrays.toString(savingToFile.readFile(filename).split("\n")).split(","); //puts into a string array and splits it into its different periods and classes
+        String[][] classAndId = new String[fileData.length - 1][]; //Save each periods and class set so that it can be accessed as one variable
+        for (int i = 1; i < fileData.length; i++) { //iterates through the string array, used to bind the classes to its periods and saves it as a variable
             String[] values = fileData[i].split(" ");
 
-            if (values[2].contains("]")) {
+            if (values[2].contains("]")) { //Error Testing, removes random extra bracket
                 values[2] = values[2].replace("]", "");
             }
             classAndId[i - 1] = new String[]{values[1], values[2]};
-        }
+        }//shows the image in relation to the class on screen
         Toast.makeText(this, classAndId[0][0], Toast.LENGTH_SHORT).show();
         whichMap(classAndId[0][1]);
-        Thread.sleep(2000);
+        Thread.sleep(20000);
         Toast.makeText(this, classAndId[1][0], Toast.LENGTH_SHORT).show();
         whichMap(classAndId[1][1]);
-        Thread.sleep(2000);
+        Thread.sleep(20000);
         Toast.makeText(this, classAndId[2][0], Toast.LENGTH_SHORT).show();
         whichMap(classAndId[2][1]);
-        Thread.sleep(2000);
+        Thread.sleep(20000);
         Toast.makeText(this, classAndId[3][0], Toast.LENGTH_SHORT).show();
         whichMap(classAndId[3][1]);
-        Thread.sleep(2000);
+        Thread.sleep(20000);
         Toast.makeText(this, classAndId[4][0], Toast.LENGTH_SHORT).show();
         whichMap(classAndId[4][1]);
     }

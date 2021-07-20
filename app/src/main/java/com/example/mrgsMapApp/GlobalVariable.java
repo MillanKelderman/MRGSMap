@@ -7,9 +7,9 @@ public class GlobalVariable extends Application {
 
     public String getGlobalVariable() {
         return ID;
-    }
+    } //allows the variable to be used in other classes when GlobalVariable.class is mentioned
 
     public void setGlobalVariable(String ID) {
         this.ID = ID;
-    }
+    } //sets the variable to be used in different classes
 }
