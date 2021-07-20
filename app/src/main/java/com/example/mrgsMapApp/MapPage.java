@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,7 +27,9 @@ public class MapPage extends AppCompatActivity {
     private final String[] OPTIONS_ARRAY = {"Options", "A block", "B block", "C block", "D Block", "E block",
             "G block", "H block", "M Block", "P block", "R block", "S block", "T Block"};
 
-    SavingToFile savingToFile;
+    private SavingToFile savingToFile;
+    private String filename;
+    private String[][] classAndId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,15 @@ public class MapPage extends AppCompatActivity {
         setContentView(R.layout.activity_mappage2);
 
         savingToFile = new SavingToFile(this);
+        filename = ((GlobalVariable) this.getApplication()).getGlobalVariable(); //gets the variable that was set by the SetGlobalVariable in the MainStudentIDLogin page
+        classAndId = fileToArray();
+
+        Button TimeTableSetter = findViewById(R.id.open_timetable);
+        try { //used to find an error as trying to find the value inside the classAndId and gives an error if there is nothing. Used to find if it is a new StudentID or and existing StudentID.
+            TimeTableSetter.setEnabled(classAndId[0][1] == null); //null used a placeholder value to make the value true or false
+        } catch (Exception e){
+            TimeTableSetter.setEnabled(true); //To prevent users from going back and overwriting their file they submitted.
+        }
 
         //To be able to maneuver the map
         mapView = findViewById(R.id.map_view);
@@ -44,7 +56,6 @@ public class MapPage extends AppCompatActivity {
         mapLabelView.setVisibility(View.INVISIBLE);
         //calls the Spinner from XML file
         spinner = findViewById(R.id.options_spinner);
-        //
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MapPage.this, android.R.layout.simple_dropdown_item_1line, OPTIONS_ARRAY);
         spinner.setAdapter((arrayAdapter));
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -85,7 +96,7 @@ public class MapPage extends AppCompatActivity {
             }
         });
 
-        //call the Kamar image
+        //call the Kamar activity
         //Open KamarActivity
         ImageButton kamarImageButton = findViewById(R.id.kamar);
         kamarImageButton.setOnClickListener(v -> {
@@ -97,7 +108,7 @@ public class MapPage extends AppCompatActivity {
         });
 
         //Open Feedback Activity
-        ImageButton feedback = findViewById(R.id.FeedbackButton);
+        ImageButton feedback = findViewById(R.id.feed_back_button);
         feedback.setOnClickListener(v -> {
             Intent intentLoadNewActivity = new Intent(MapPage.this, FeedbackActivity.class);
             startActivity(intentLoadNewActivity);
@@ -110,17 +121,6 @@ public class MapPage extends AppCompatActivity {
     }
 
     private void timetableChecker() throws InterruptedException {
-        String filename = ((GlobalVariable) this.getApplication()).getGlobalVariable(); //gets the variable that was set by the SetGlobalVariable in the MainStudentIDLogin page
-        String[] fileData = Arrays.toString(savingToFile.readFile(filename).split("\n")).split(","); //puts into a string array and splits it into its different periods and classes
-        String[][] classAndId = new String[fileData.length - 1][]; //Save each periods and class set so that it can be accessed as one variable
-        for (int i = 1; i < fileData.length; i++) { //iterates through the string array, used to bind the classes to its periods and saves it as a variable
-            String[] values = fileData[i].split(" ");
-
-            if (values[2].contains("]")) { //Error Testing, removes random extra bracket
-                values[2] = values[2].replace("]", "");
-            }
-            classAndId[i - 1] = new String[]{values[1], values[2]};
-        }//shows the image in relation to the class on screen
         Toast.makeText(this, classAndId[0][0], Toast.LENGTH_SHORT).show();
         whichMap(classAndId[0][1]);
         Thread.sleep(20000);
@@ -135,6 +135,20 @@ public class MapPage extends AppCompatActivity {
         Thread.sleep(20000);
         Toast.makeText(this, classAndId[4][0], Toast.LENGTH_SHORT).show();
         whichMap(classAndId[4][1]);
+    }
+
+    private String[][] fileToArray(){
+        String[] fileData = Arrays.toString(savingToFile.readFile(filename).split("\n")).split(","); //puts into a string array and splits it into its different periods and classes
+        String[][] classAndId = new String[fileData.length - 1][]; //Save each periods and class set so that it can be accessed as one variable
+        for (int i = 1; i < fileData.length; i++) { //iterates through the string array, used to bind the classes to its periods and saves it as a variable
+            String[] values = fileData[i].split(" ");
+
+            if (values[2].contains("]")) { //Error Testing, removes random extra bracket
+                values[2] = values[2].replace("]", "");
+            }
+            classAndId[i - 1] = new String[]{values[1], values[2]};
+        }//shows the image in relation to the class on screen
+        return classAndId;
     }
 
     private void whichMap(String classBlock) {

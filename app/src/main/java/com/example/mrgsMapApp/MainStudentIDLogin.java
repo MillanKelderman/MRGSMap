@@ -45,7 +45,7 @@ public class MainStudentIDLogin extends AppCompatActivity {
         });
 
         List<SlideModel> slideModels = new ArrayList<>(); //Slide model is gathered from a dependencies in the gradle to allow images to slide through an array
-        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Diversity.jpg", "Diversity")); //used links rather than set imges, so that it can be changed if the school changes their images
+        slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Diversity.jpg", "Diversity")); //used links rather than set images, so that it can be changed if the school changes their images
         slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Individuals-1920x1280.jpg", "Individuals"));
         slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Teaching-1920x1280.jpg", "Teaching"));
         slideModels.add(new SlideModel("https://www.mrgs.school.nz/wp-content/uploads/2018/05/Purposeful-1920x1280.jpg", "Purposeful"));

@@ -96,6 +96,7 @@
         app:layout_constraintVertical_bias="0.972" />
 
     <Button
+        android:id="@+id/open_timetable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/file_success_button"
@@ -110,7 +111,7 @@
         app:layout_constraintVertical_bias="0.152" />
 
     <ImageButton
-        android:id="@+id/FeedbackButton"
+        android:id="@+id/feed_back_button"
         android:layout_width="88dp"
         android:layout_height="88dp"
         android:layout_marginBottom="4dp"

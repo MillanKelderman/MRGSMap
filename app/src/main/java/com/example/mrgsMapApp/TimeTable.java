@@ -55,8 +55,9 @@ public class TimeTable extends AppCompatActivity {
         periodFiveSpinner = findViewById(R.id.periodFiveSpinner);
 //links objects inside the XML to the variables in the method
         SaveTimeTable = findViewById(R.id.button2);
+//sets the variables inside the string array that was mentioned in initial variables.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, ITEMS);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, ITEMS); //sets the variables inside the string array that was mentioned in initial variables.
 //for the different spinners
         periodOneSpinner.setAdapter(adapter);
         periodTwoSpinner.setAdapter(adapter);
@@ -88,7 +89,7 @@ public class TimeTable extends AppCompatActivity {
         //for loop to iterate through each item, this prevented duplication of code
         String[] periodClass = {periodOneClass, periodTwoClass, periodThreeClass, periodFourClass, periodFiveClass};
         //this puts it into a new nested string array
-        for (int i = 0; i < 5; i++) { //nested string array is an array within an array, arrayception
+        for (int i = 0; i < 5; i++) { //nested string array is an array within an array,
             String[] classAndPeriod = {period[i], periodClass[i]};
             Data[i] = classAndPeriod;
         }
